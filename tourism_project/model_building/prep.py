@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 df = pd.read_csv("tourism_project/data/tourism.csv")
 df.drop(columns=["Unnamed: 0","CustomerID"], inplace=True)
 df["Gender"] = df["Gender"].replace("Fe Male", "Female")
+df["MaritalStatus"] = df["MaritalStatus"].replace("Unmarried", "Single")
 
 # NOTE: 'TypeofContact','Occupation', 'Gender','ProductPitched','MaritalStatus'
 # and 'Designation' are intentionally left as raw strings.
