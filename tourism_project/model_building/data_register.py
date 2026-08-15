@@ -16,9 +16,6 @@ missing = [c for c in expected_columns if c not in df.columns]
 if missing:
     raise ValueError(f"Dataset is missing expected columns: {missing}")
 
-df["Gender"] = df["Gender"].replace("Fe Male", "Female")
-df["MaritalStatus"] = df["MaritalStatus"].replace("Unmarried", "Single")
-
 print("Dataset registered successfully.")
 print(f"Rows: {df.shape[0]}, Columns: {df.shape[1]}")
 print("Columns:", list(df.columns))
