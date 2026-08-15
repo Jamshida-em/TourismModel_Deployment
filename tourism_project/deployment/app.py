@@ -7,13 +7,13 @@ import joblib
 model_path = os.path.join(os.path.dirname(__file__), "best_tourism_model_v1.joblib")
 model = joblib.load(model_path)
 
-st.title("Tourism Prediction App")
+st.title("Tourism Package Prediction App")
 st.write("""
-This application predicts the likelihood of a customer accepting tourism package based on their details.
-Enter the data below to get a prediction.
+This application predicts predicts whether a customer will purchase the newly introduced Wellness Tourism Package before contacting them.
+Please enter the data below to get a prediction.
 """)
 
-AgeGroup    = st.selectbox("Age Group", ["18-25","26-41","42-57","58-76+"])
+AgeGroup = st.selectbox("Age Group", ["18-25","26-41","42-57","58-76+"])
 TypeofContact = st.selectbox("Type of Contact", ["Self Enquiry","Company Invited"])
 CityTier = st.selectbox("City Tier", [1,2,3])
 DurationOfPitch = st.number_input("Duration Of Pitch", 1, 150, 15, 1)
