@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+import numpy as np
 
 df = pd.read_csv("tourism_project/data/tourism.csv")
 df.drop(columns=["Unnamed: 0","CustomerID"], inplace=True)
