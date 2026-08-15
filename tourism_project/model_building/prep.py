@@ -5,6 +5,10 @@ df = pd.read_csv("tourism_project/data/tourism.csv")
 df.drop(columns=["Unnamed: 0","CustomerID"], inplace=True)
 df["Gender"] = df["Gender"].replace("Fe Male", "Female")
 df["MaritalStatus"] = df["MaritalStatus"].replace("Unmarried", "Single")
+bins = [18, 25, 41, 57, np.inf]
+labels = ['18-25', '26-41', '42-57', '58-76+']
+df['Age_group'] = pd.cut(df['Age'], bins=bins, labels=labels, include_lowest=True)
+df.drop(columns=["Age"], inplace=True)
 
 # NOTE: 'TypeofContact','Occupation', 'Gender','ProductPitched','MaritalStatus'
 # and 'Designation' are intentionally left as raw strings.
