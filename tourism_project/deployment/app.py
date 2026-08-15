@@ -13,29 +13,29 @@ This application predicts the likelihood of a customer accepting tourism package
 Enter the data below to get a prediction.
 """)
 
-Age_group    = st.selectbox("Age Group", ["18-25","26-41","42-57","58-76+"])
-TypeofContact = st.selectbox("Type of Contact", ["Company Invited", "Self Enquiry"])
+AgeGroup    = st.selectbox("Age Group", ["18-25","26-41","42-57","58-76+"])
+TypeofContact = st.selectbox("Type of Contact", ["Self Enquiry","Company Invited"])
 CityTier = st.selectbox("City Tier", [1,2,3])
 DurationOfPitch = st.number_input("Duration Of Pitch", 1, 150, 15, 1)
-Occupation = st.selectbox("Occupation", ["Free Lancer", "Salaried","Large Business","Small Business"])
+Occupation = st.selectbox("Occupation", ["Salaried","Small Business","Large Business","Free Lancer"])
 Gender = st.selectbox("Gender", ["Male", "Female"])
 NumberOfPersonVisiting = st.number_input("Number Of Person Visiting", 1, 10, 2, 1)
 NumberOfFollowups = st.number_input("Number Of Follow ups", 1, 10, 2, 1)
-ProductPitched = st.selectbox("Product Pitched", ["Basic", "Deluxe","Standard","Super Deluxe","King"])
+ProductPitched = st.selectbox("Product Pitched", ["Basic","Standard","Deluxe","Super Deluxe","King"])
 PreferredPropertyStar = st.number_input("Preferred Property Star", 1, 5, 3, 1)
-MaritalStatus = st.selectbox("Marital Status", ["Married", "Single","Divorced"])
+MaritalStatus = st.selectbox("Marital Status", [ "Single","Married","Divorced"])
 NumberOfTrips = st.number_input("Number Of Trips", 1, 20, 2, 1)
-Passport = st.selectbox("Passport", [0,1])
+Passport = st.selectbox("Passport", [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
 PitchSatisfactionScore = st.number_input("Pitch Satisfaction Score", 1, 5, 3, 1)
-OwnCar = st.selectbox("Own Car", [0,1])
+OwnCar = st.selectbox("Own Car", [1, 0], format_func=lambda x: "Yes" if x == 1 else "No")
 NumberOfChildrenVisiting = st.number_input("Number Of Children Visiting", 0, 10, 0, 1)
-Designation = st.selectbox("Designation", ["Executive", "Manager","Senior Manager","VP","AVP"])
+Designation = st.selectbox("Designation", ["Manager","Senior Manager","Executive","VP","AVP"])
 MonthlyIncome = st.number_input("Monthly Income", 100, 100000, 5000, 100)
 
 
 
 input_data = pd.DataFrame([{
-    "Age_group" : Age_group,
+    "AgeGroup" : AgeGroup,
     "TypeofContact" : TypeofContact,
     "CityTier" : CityTier,
     "DurationOfPitch" : DurationOfPitch,
