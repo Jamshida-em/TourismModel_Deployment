@@ -43,7 +43,7 @@ categorical_features = [
     'ProductPitched',
     'MaritalStatus',
     'Designation',
-    'Age_group'
+    'AgeGroup'
 ]
 
 # Set the class weight to handle class imbalance
