@@ -22,7 +22,8 @@ ytest  = pd.read_csv("ytest.csv").squeeze()
 
 # One-hot encode 'Type' and scale numeric features
 # List of numerical features in the dataset
-numeric_features = ['CityTier',
+numeric_features = ['Age',
+                    'CityTier',
                     'DurationOfPitch',
                     'NumberOfPersonVisiting',
                     'NumberOfFollowups',
@@ -42,8 +43,7 @@ categorical_features = [
     'Gender',
     'ProductPitched',
     'MaritalStatus',
-    'Designation',
-    'AgeGroup'
+    'Designation'
 ]
 
 # Set the class weight to handle class imbalance
