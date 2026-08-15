@@ -13,7 +13,7 @@ This application predicts the likelihood of a customer accepting tourism package
 Enter the data below to get a prediction.
 """)
 
-age    = st.number_input("Age", 18, 75, 30, 1)
+Age_group    = st.selectbox("Age Group", ["18-25","26-41","42-57","58-76+"])
 TypeofContact = st.selectbox("Type of Contact", ["Company Invited", "Self Enquiry"])
 CityTier = st.selectbox("City Tier", [1,2,3])
 DurationOfPitch = st.number_input("Duration Of Pitch", 1, 150, 15, 1)
@@ -35,7 +35,7 @@ MonthlyIncome = st.number_input("Monthly Income", 100, 100000, 5000, 100)
 
 
 input_data = pd.DataFrame([{
-    "Age" : age,
+    "Age_group" : Age_group,
     "TypeofContact" : TypeofContact,
     "CityTier" : CityTier,
     "DurationOfPitch" : DurationOfPitch,
@@ -52,7 +52,7 @@ input_data = pd.DataFrame([{
     "OwnCar" : OwnCar,
     "NumberOfChildrenVisiting" : NumberOfChildrenVisiting,
     "Designation" : Designation,
-    "MonthlyIncome" : MonthlyIncome,      
+    "MonthlyIncome" : MonthlyIncome,
 }])
 
 if st.button("Predict"):
