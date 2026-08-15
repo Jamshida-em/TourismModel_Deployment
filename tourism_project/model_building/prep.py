@@ -2,14 +2,26 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import numpy as np
 
+#read the dataset
 df = pd.read_csv("tourism_project/data/tourism.csv")
-df.drop(columns=["Unnamed: 0","CustomerID"], inplace=True)
+
+#Replacing "Fe Male" in Gender column with "Female"
 df["Gender"] = df["Gender"].replace("Fe Male", "Female")
+
+#Replacing "Unmarried" in MaritalStatus column with "Single"
 df["MaritalStatus"] = df["MaritalStatus"].replace("Unmarried", "Single")
+
+# Feature Engineering Age into AgeGroup
+
+# Define bin edges and corresponding labels.np.inf handles any age above 76
 bins = [18, 25, 41, 57, np.inf]
 labels = ['18-25', '26-41', '42-57', '58-76+']
-df['Age_group'] = pd.cut(df['Age'], bins=bins, labels=labels, include_lowest=True)
-df.drop(columns=["Age"], inplace=True)
+
+# Create the new AgeGroup column
+df['AgeGroup'] = pd.cut(df['Age'], bins=bins, labels=labels, include_lowest=True)
+
+#Dropping index, CustomerID and Age as they don't add any value.
+df.drop(columns=["Unnamed: 0","CustomerID","Age"], inplace=True)
 
 # NOTE: 'TypeofContact','Occupation', 'Gender','ProductPitched','MaritalStatus'
 # and 'Designation' are intentionally left as raw strings.
